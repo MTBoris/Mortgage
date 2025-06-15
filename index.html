@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 Получите ипотеку с минимальным первоначальным взносом | AD Mortgage - Boris Melik</title>
+    <meta name="description" content="Борис Мелик-Тангиев поможет получить ипотеку мечты! FHA от 3.5%, VA 0% взнос, быстрое одобрение. Звоните: 786-848-2353">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* Анимации */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Герой секция */
+        .hero {
+            background: linear-gradient(-45deg, #1e3c72, #2a5298, #667eea, #764ba2);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .floating-houses {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .house {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .house:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .house:nth-child(2) { top: 20%; right: 10%; animation-delay: 1s; }
+        .house:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 2s; }
+        .house:nth-child(4) { bottom: 10%; right: 20%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .urgency-banner {
+            background: rgba(255, 59, 48, 0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            animation: shake 2s infinite;
+        }
+
+        .cta-primary {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 18px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: #2a5298;
+            transform: translateY(-3px);
+        }
+
+        /* Экспертность */
+        .expert-section {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .expert-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .expert-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .expert-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .expert-title {
+            font-size: 1.2rem;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .expert-credentials {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .credential {
+            background: linear-gradient(45df, #f093fb, #f5576c);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        /* Социальные доказательства */
+        .social-proof {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+        }
+
+        .stat-item {
+            animation: fadeInUp 1s ease-out;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Программы */
+        .programs {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .programs h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: linear-gradient(135deg, white 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .program-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .program-highlight {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .program-features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .program-features li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+        }
+
+        .program-cta {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .program-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Проблемы */
+        .problems {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .problems h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Лид-форма */
+        .lead-form-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .form-container p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .lead-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-submit {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Контакты */
+        .contact-info {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Отзывы */
+        .testimonials {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: #667eea;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .testimonial-rating {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Плавающие кнопки */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+        }
+
+        .phone-btn {
+            background: #007bff;
+        }
+
+        .email-btn {
+            background: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <!-- Плавающие кнопки -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/17868482353" class="floating-btn whatsapp-btn" title="WhatsApp">💬</a>
+        <a href="tel:+17868482353" class="floating-btn phone-btn" title="Позвонить">📞</a>
+        <a href="mailto:boris.melik@admortgage.com" class="floating-btn email-btn" title="Email">✉️</a>
+    </div>
+
+    <!-- Герой -->
+    <section class="hero">
+        <div class="floating-houses">
+            <div class="house">🏠</div>
+            <div class="house">🏡</div>
+            <div class="house">🏘️</div>
+            <div class="house">🏠</div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="urgency-banner">
+                ⚡ СРОЧНО! Ставки растут! Зафиксируйте НИЗКУЮ ставку СЕГОДНЯ!
+            </div>
+            
+            <h1>🏠 Получите ипотеку мечты с минимальным взносом!</h1>
+            <p class="hero-subtitle">
+                Опытный брокер AD Mortgage поможет получить одобрение за 24 часа!<br>
+                ✅ FHA от 3.5% взноса ✅ VA 0% взноса ✅ Плохая кредитная история? Не проблема!
+            </p>
+            
+            <div>
+                <a href="#lead-form" class="cta-primary">🔥 ПОЛУЧИТЬ ОДОБРЕНИЕ СЕЙЧАС!</a>
+                <a href="tel:+17868482353" class="cta-secondary">📞 ПОЗВОНИТЬ СЕЙЧАС</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Эксперт -->
+    <section class="expert-section">
+        <div class="expert-content">
+            <div class="expert-photo">👨‍💼</div>
+            <h2 class="expert-name">Boris Melik-Tangiyev</h2>
+            <p class="expert-title">Лицензированный ипотечный брокер AD Mortgage</p>
+            
+            <div class="expert-credentials">
+                <div class="credential">NMLS ID: 1571948</div>
+                <div class="credential">500+ довольных клиентов</div>
+                <div class="credential">15+ лет опыта</div>
+            </div>
+            
+            <p style="font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto;">
+                "Помогаю семьям во Флориде осуществить американскую мечту о собственном доме. 
+                Работаю с любой кредитной историей и доходом!"
+            </p>
+        </div>
+    </section>
+
+    <!-- Социальные доказательства -->
+    <section class="social-proof">
+        <h2 style="margin-bottom: 40px; color: #2c3e50;">🏆 Наши достижения говорят сами за себя!</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <div class="stat-label">Довольных семей</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24ч</span>
+                <div class="stat-label">Среднее время одобрения</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <div class="stat-label">Успешных сделок</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">$50M+</span>
+                <div class="stat-label">Выданных кредитов</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Проблемы -->
+    <section class="problems">
+        <h2>😰 Устали от отказов банков?</h2>
+        <div class="problems-grid">
+            <div class="problem-card">
+                <div class="problem-icon">😡</div>
+                <h3>Банки требуют идеальную кредитную историю?</h3>
+                <p>Мы работаем с клиентами от 580 credit score!</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">💸</div>
+                <h3>Нет денег на большой первоначальный взнос?</h3>
+                <p>FHA - всего 3.5%, VA - 0% первоначального взноса!</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">📄</div>
+                <h3>Сложная документация и долгое ожидание?</h3>
+                <p>Одобрение за 24 часа, минимум документов!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Программы -->
+    <section class="programs">
+        <h2>🎯 ТОП-3 Программы 2025 года для Вас!</h2>
+        <div class="programs-grid">
+            <!-- FHA Loan -->
+            <div class="program-card">
+                <h3 class="program-title">💎 FHA Кредит</h3>
+                <div class="program-highlight">САМЫЙ ПОПУЛЯРНЫЙ</div>
+                <ul class="program-features">
+                    <li>Всего 3.5% первоначальный взнос</li>
+                    <li>Credit score от 580</li>
+                    <li>Ставка от 7.12%</li>
+                    <li>Подходит для первого дома</li>
+                    <li>Гибкие требования к доходу</li>
+                    <li>Возможность ремонта дома</li>
+                </ul>
+                <button class="program-cta" onclick="scrollToForm()">УЗНАТЬ ПОДРОБНЕЕ</button>
+            </div>
+
+            <!-- VA Loan -->
+            <div class="program-card">
+                <h3 class="program-title">🇺🇸 VA Кредит</h3>
+                <div class="program-highlight">ДЛЯ ВОЕННЫХ</div>
+                <ul class="program-features">
+                    <li>0% первоначальный взнос!</li>
+                    <li>Без PMI страховки</li>
+                    <li>Лучшие ставки на рынке</li>
+                    <li>Для ветеранов и военных</li>
+                    <li>Можно использовать повторно</li>
+                    <li>Без штрафов за досрочное погашение</li>
+                </ul>
+                <button class="program-cta" onclick="scrollToForm()">ПРОВЕРИТЬ ПРАВО</button>
+            </div>
+
+            <!-- Conventional Loan -->
+            <div class="program-card">
+                <h3 class="program-title">🏛️ Conventional Кредит</h3>
+                <div class="program-highlight">МАКСИМАЛЬНАЯ СУММА</div>
+                <ul class="program-features">
+                    <li>От 3% первоначальный взнос</li>
+                    <li>Лимит до $766,550</li>
+                    <li>Отличные ставки для хорошего кредита</li>
+                    <li>Можно убрать PMI при 20% equity</li>
+                    <li>Подходит для дорогих домов</li>
+                    <li>Быстрое закрытие сделки</li>
+                </ul>
+                <button class="program-cta" onclick="scrollToForm()">РАССЧИТАТЬ ПЛАТЕЖ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials">
+        <h2>💬 Что говорят наши клиенты</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">
+                    Борис помог нам получить одобрение FHA кредита всего за один день! 
+                    У нас был кредитный рейтинг 620, но он нашел лучшую программу для нас.
+                </p>
+                <div class="testimonial-author">- Мария К., Майами</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">
+                    Как ветеран, я получил VA кредит без первоначального взноса. 
+                    Борис объяснил все детали и провел сделку идеально!
+                </p>
+                <div class="testimonial-author">- Джон М., Форт Лодердейл</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">
+                    Conventional кредит на $700,000 - думали будет сложно, но Борис 
+                    сделал все быстро и с отличной ставкой!
+                </p>
+                <div class="testimonial-author">- Анна С., Бока Ратон</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Лид-форма -->
+    <section class="lead-form-section" id="lead-form">
+        <div class="form-container">
+            <h2>🚀 Получите одобрение за 24 часа!</h2>
+            <p>За
