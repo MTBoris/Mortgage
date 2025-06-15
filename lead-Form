@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier Loans - Get Your Dream Home Today</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #667eea;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e8ed;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .contact-item strong {
+            margin-left: 8px;
+        }
+
+        .loan-officer {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-message" id="successMessage">
+            <h3>🎉 Thank You!</h3>
+            <p>Your information has been received. Boris will contact you within 24 hours to discuss your mortgage options.</p>
+        </div>
+
+        <div class="header">
+            <div class="logo">PREMIER LOANS</div>
+            <div class="tagline">by AD Mortgage</div>
+        </div>
+
+        <div class="loan-officer">
+            <strong>Boris Melik-Tangiyev</strong><br>
+            Mortgage Loan Originator<br>
+            NMLS ID: 1571948
+        </div>
+
+        <form id="leadForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name <span class="required">*</span></label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name <span class="required">*</span></label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loanType">Loan Type <span class="required">*</span></label>
+                <select id="loanType" name="loanType" required>
+                    <option value="">Select Loan Type</option>
+                    <option value="purchase">Home Purchase</option>
+                    <option value="refinance">Refinance</option>
+                    <option value="cashout">Cash-Out Refinance</option>
+                    <option value="heloc">Home Equity Line of Credit</option>
+                    <option value="construction">Construction Loan</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="purchasePrice">Purchase Price / Home Value</label>
+                    <input type="text" id="purchasePrice" name="purchasePrice" placeholder="$000,000">
+                </div>
+                <div class="form-group">
+                    <label for="downPayment">Down Payment</label>
+                    <input type="text" id="downPayment" name="downPayment" placeholder="$00,000">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="creditScore">Credit Score Range</label>
+                <select id="creditScore" name="creditScore">
+                    <option value="">Select Credit Score Range</option>
+                    <option value="800+">800+ (Excellent)</option>
+                    <option value="740-799">740-799 (Very Good)</option>
+                    <option value="670-739">670-739 (Good)</option>
+                    <option value="580-669">580-669 (Fair)</option>
+                    <option value="300-579">300-579 (Poor)</option>
+                    <option value="unknown">Not Sure</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="timeline">When do you plan to close?</label>
+                <select id="timeline" name="timeline">
+                    <option value="">Select Timeline</option>
+                    <option value="asap">ASAP</option>
+                    <option value="30days">Within 30 Days</option>
+                    <option value="60days">Within 60 Days</option>
+                    <option value="90days">Within 90 Days</option>
+                    <option value="exploring">Just Exploring</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Comments or Questions</label>
+                <textarea id="comments" name="comments" rows="3" placeholder="Tell us about your mortgage needs..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Get My Free Quote Today
+            </button>
+        </form>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                📞 <strong>786-848-2353</strong>
+            </div>
+            <div class="contact-item">
+                📧 <strong>boris.melik@admortgage.com</strong>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Simulate form submission
+            console.log('Lead Form Submission:', data);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            this.style.display = 'none';
+            
+            // In a real implementation, you would send this data to your CRM or email service
+            // Example: send to email service, CRM, or webhook
+        });
+
+        // Format phone number input
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 6) {
+                value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+            } else if (value.length >= 3) {
+                value = value.replace(/(\d{3})(\d{3})/, '($1) $2');
+            }
+            e.target.value = value;
+        });
+
+        // Format price inputs
+        function formatPrice(input) {
+            input.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/[^\d]/g, '');
+                if (value) {
+                    value = parseInt(value).toLocaleString();
+                    e.target.value = '$' + value;
+                }
+            });
+        }
+
+        formatPrice(document.getElementById('purchasePrice'));
+        formatPrice(document.getElementById('downPayment'));
+    </script>
+</body>
+</html>
